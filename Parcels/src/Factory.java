@@ -6,6 +6,7 @@ public class Factory extends JPanel {
     protected Scanner sc = new Scanner(); //airport scanner, not input
     public final Package[] list = new Package[20];
     public static long globalTick = 0;
+    public Conveyor stopCo;
 
     public Factory(){
         //dimensions of packages
@@ -16,6 +17,7 @@ public class Factory extends JPanel {
             int location = (int) (Math.random() * 3);
             list[i] = new Package(length, width, height, location, i);
         }
+        stopCo = new Conveyor(true, "right");
     }
 
     public void paint(Graphics g){
