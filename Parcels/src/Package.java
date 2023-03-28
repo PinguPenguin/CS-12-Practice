@@ -7,11 +7,9 @@ public class Package {
     private int location;
     //1 = international, 2 = domestic, 3 = unknown
     private int number;
-
-    private boolean scanned = false;
-    public void scan (){
-        scanned = true;
-    }
+    private int x;
+    private int y;
+    private boolean isScanned = false;
 
     public Package(int length, int width, int height, int location, int number){
         this.length = length;
@@ -19,6 +17,13 @@ public class Package {
         this.width = width;
         this.location = location;
         this.number = number;
+        x = number * 200 - 3800;
+        y = 320 - height/2;
+    }
+
+    public void scan () {
+        isScanned = true;
+
     }
 
     public void paint(Graphics2D g2d) {
@@ -30,6 +35,25 @@ public class Package {
             g2d.setColor(Color.YELLOW);
         }
 
-        g2d.fillRect(number * 50, 320, width, height);
+        if (x >= 510 - width / 2 && location == 1) {
+            y--;
+            if (!isScanned) {
+                scan();
+            }
+        } else if (x >= 510 - width / 2 && location == 3) {
+            y++;
+            if (!isScanned) {
+                scan();
+            }
+        } else if (x >= 510 - width / 2 && location == 2) {
+            x++;
+            if (!isScanned) {
+                scan();
+            }
+        } else if (!Factory.stopStatus()){
+            x++;
+        }
+
+        g2d.fillRect(x, y, width, height);
     }
 }
