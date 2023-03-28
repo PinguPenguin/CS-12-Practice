@@ -49,12 +49,13 @@ public class Factory extends JPanel {
         for (int i = 0; i < 20; i++) {
             list[i].paint(g2d);
         }
+        stopCo.paint(g2d);
     }
 
     public static void main(String[] args) throws InterruptedException {
         JFrame frame = new JFrame("KMEM: Superhub");
         Factory fact = new Factory();
-        frame.setUndecorated(true);
+        //frame.setUndecorated(true); //hides title bar
         frame.add(fact);
         frame.setSize(1020, 640);
         frame.setVisible(true);

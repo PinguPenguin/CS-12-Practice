@@ -23,7 +23,10 @@ public class Package {
 
     public void scan () {
         isScanned = true;
+    }
 
+    public int getX(){
+        return x;
     }
 
     public void paint(Graphics2D g2d) {

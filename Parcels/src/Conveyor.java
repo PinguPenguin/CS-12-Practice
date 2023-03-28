@@ -11,8 +11,11 @@ public class Conveyor {
 
     public void paint(Graphics2D g2d) {
         //make circles with spinning triangles underneath
-        if (stoppable){
-
+        if (Factory.stopStatus()){
+            g2d.setColor(Color.RED);
+        } else {
+            g2d.setColor(Color.GREEN);
         }
+        g2d.fillOval(40, 40, 40, 40);
     }
 }
