@@ -29,6 +29,14 @@ public class Package {
         return x;
     }
 
+    public int getY(){
+        return y;
+    }
+
+    public int getLocation() {
+        return location;
+    }
+
     public void paint(Graphics2D g2d) {
         if (location == 1) {
             g2d.setColor(Color.BLUE);

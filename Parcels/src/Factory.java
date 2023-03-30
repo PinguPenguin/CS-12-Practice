@@ -5,8 +5,9 @@ import java.awt.event.KeyListener;
 
 public class Factory extends JPanel {
 
-    protected Scanner sc = new Scanner(); //airport scanner, not input
+     //airport scanner, not input
     public final Package[] list = new Package[20];
+    protected Scanner sc;
     public static long globalTick = 0;
     public Conveyor stopCo;
     private static boolean isStopped = false;
@@ -16,7 +17,6 @@ public class Factory extends JPanel {
     }
     public Factory(){
         addKeyListener(new KeyListener() {
-
             @Override
             public void keyTyped(KeyEvent e) {
             }
@@ -41,16 +41,19 @@ public class Factory extends JPanel {
             list[i] = new Package(length, width, height, location, i);
         }
         stopCo = new Conveyor(true, "right");
+        sc = new Scanner(list);
     }
 
     public void paint(Graphics g){
         Graphics2D g2d = (Graphics2D) g;
-        sc.paint(g2d);
         for (int i = 0; i < 20; i++) {
             list[i].paint(g2d);
         }
         stopCo.paint(g2d);
+        sc.paint(g2d);
     }
+
+
 
     public static void main(String[] args) throws InterruptedException {
         JFrame frame = new JFrame("KMEM: Superhub");
