@@ -1,7 +1,11 @@
 import java.awt.*;
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 
 public class Scanner {
-
+    private BufferedImage destination = null;
     private int currentLocation = 0;
     Package[] list;
     public Scanner(Package[] list) {
@@ -31,11 +35,35 @@ public class Scanner {
         //g2d.drawLine(0, 320, 1020, 320);
         //g2d.drawLine(510, 0, 510, 640);
         if (isIntersecting()) {
-            g2d.setColor(Color.YELLOW);
+            g2d.setColor(Color.RED);
             g2d.fillOval(480, 290, 20, 20);
         }
         if (currentLocation == 1) {
-
+            try {
+                destination = ImageIO.read(new File("res\\Jayjay.PNG"));
+                //100x20
+            } catch (IOException e) {
+                System.out.println(":(");
+            }
+            g2d.drawImage(destination, 10, 520, null);
+        }
+        if (currentLocation == 2) {
+            try {
+                destination = ImageIO.read(new File("res\\TRUCKIN.PNG"));
+                //100x20
+            } catch (IOException e) {
+                System.out.println(":(");
+            }
+            g2d.drawImage(destination, 10, 470, null);
+        }
+        if (currentLocation == 3) {
+            try {
+                destination = ImageIO.read(new File("res\\what.png"));
+                //100x20
+            } catch (IOException e) {
+                System.out.println(":(");
+            }
+            g2d.drawImage(destination, 10, 510, null);
         }
     }
 

@@ -9,7 +9,6 @@ public class Package {
     private int number;
     private int x;
     private int y;
-    private boolean isScanned = false;
 
     public Package(int length, int width, int height, int location, int number){
         this.length = length;
@@ -19,10 +18,6 @@ public class Package {
         this.number = number;
         x = number * 200 - 3800;
         y = 320 - height/2;
-    }
-
-    public void scan () {
-        isScanned = true;
     }
 
     public int getX(){
@@ -48,23 +43,13 @@ public class Package {
 
         if (x >= 510 - width / 2 && location == 1) {
             y--;
-            if (!isScanned) {
-                scan();
-            }
         } else if (x >= 510 - width / 2 && location == 3) {
             y++;
-            if (!isScanned) {
-                scan();
-            }
         } else if (x >= 510 - width / 2 && location == 2) {
             x++;
-            if (!isScanned) {
-                scan();
-            }
         } else if (!Factory.stopStatus()){
             x++;
         }
-
         g2d.fillRect(x, y, width, height);
     }
 }
