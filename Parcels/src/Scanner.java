@@ -10,19 +10,16 @@ public class Scanner {
     Package[] list;
     public Scanner(Package[] list) {
         this.list = list;
-        for (int i = 0; i < 20; i++) {
-            System.out.println(list[i]);
-        }
     }
 
-    public boolean isIntersecting(){ //checks each package for adjacency to scanner
+    private boolean isIntersecting(){ //checks each package for adjacency to scanner
         for (int i = 0; i < 20; i++) {
             if (list[i].getX() > 470 && list[i].getX() < 550 && list[i].getY() < 340 && list[i].getY() > 280) {
                 currentLocation = list[i].getLocation();
                 return true;
             }
         }
-        System.out.println("nah");
+        //System.out.println("nah");
         return false; //none error code
     }
 

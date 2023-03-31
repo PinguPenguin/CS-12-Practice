@@ -6,15 +6,43 @@ import java.awt.event.KeyListener;
 public class Factory extends JPanel {
 
      //airport scanner, not input
-    public final Package[] list = new Package[20];
+    private static final Package[] list = new Package[20];
     protected Scanner sc;
-    public static long globalTick = 0;
-    public Conveyor stopCo;
+    private Conveyor stopCo;
+    private RightConveyor rightCo;
+    private UpConveyor upCo;
+    private DownConveyor downCo;
     private static boolean isStopped = false;
+
+    public static boolean rightCheck(){
+        for (int i = 0; i < 20; i++) {
+            if (list[i].getX() > 550 && list[i].getX() < 1020) {
+                return true;
+            }
+        }
+        return false;
+    }
+    public static boolean upCheck(){
+        for (int i = 0; i < 20; i++) {
+            if (list[i].getY() > 0 && list[i].getY() < 280) {
+                return true;
+            }
+        }
+        return false;
+    }
+    public static boolean downCheck(){
+        for (int i = 0; i < 20; i++) {
+            if (list[i].getY() > 360 && list[i].getY() < 640) {
+                return true;
+            }
+        }
+        return false;
+    }
 
     public static boolean stopStatus(){
         return isStopped;
     }
+
     public Factory(){
         addKeyListener(new KeyListener() {
             @Override
@@ -40,16 +68,23 @@ public class Factory extends JPanel {
             int location = (int) (Math.random() * 3 + 1);
             list[i] = new Package(length, width, height, location, i);
         }
-        stopCo = new Conveyor(true, "right");
+        stopCo = new Conveyor();
+        rightCo = new RightConveyor();
+        upCo = new UpConveyor();
+        downCo = new DownConveyor();
         sc = new Scanner(list);
     }
 
     public void paint(Graphics g){
         Graphics2D g2d = (Graphics2D) g;
+        stopCo.paint(g2d);
+        rightCo.paint(g2d);
+        upCo.paint(g2d);
+        downCo.paint(g2d);
+
         for (int i = 0; i < 20; i++) {
             list[i].paint(g2d);
         }
-        stopCo.paint(g2d);
         sc.paint(g2d);
     }
 
@@ -69,7 +104,6 @@ public class Factory extends JPanel {
         while(true){
             Thread.sleep(10);
             frame.repaint();
-            globalTick++;
         }
     }
 
