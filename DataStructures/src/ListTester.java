@@ -1,15 +1,11 @@
 public class ListTester {
-    static LinkedLists1 list1 = new LinkedLists1();
+    static Queue q1 = new Queue();
     public static void main(String[] args) {
-        list1.printList();
-        list1.addAtFront(10);
-        list1.printList();
-        list1.addAtFront(15);
-        list1.printList();
-        list1.deleteFirst();
-        list1.printList();
-        list1.addAtFront(20);
-        list1.printList();
-        //System.out.println("Sum: " + list1.sum());
+        q1.enqueue(1);
+        q1.enqueue(2);
+        q1.enqueue(3);
+        q1.printQueue();
+        System.out.println(q1.dequeue());
+        q1.printQueue();
     }
 }
