@@ -1,0 +1,82 @@
+class LinkedList {
+	private Node head;
+	class Node{
+		int info;
+		Node link;
+		Node (int i, Node n) {
+			info = i;
+			link = n;
+		}
+	}
+	
+	public void addAtFront(int val) {
+		if (head == null) {
+			head = new Node (val, null);
+		} else {
+			Node next = new Node (val, head);
+			head = next;
+		}
+	}
+	
+	public void printList(){
+		for (Node current = head; current != null; current = current.link) {
+			System.out.println(current.info);
+		}
+	}
+	
+	public void addAtRear(int val) {
+		Node next = new Node(val, null);
+		Node current = head;
+		while (current.link) != null {
+			current = current.link;
+		}
+		current.link = next;
+	}
+	
+	public void deleteFirst() {
+		if (head == null) {
+			System.out.println("empty, can't delete");
+		} else {
+			head = head.link;
+		}
+	}
+	
+	public void deleteLast() {
+		if (head == null) {
+			System.out.println("Empty, not deleting.");
+		} else {
+			Node prev = head;
+			Node current = head;
+			while (current.link != null) {
+			prev = current;
+			current = current.link;
+			}
+		prev.link = null;
+		}
+	}
+		
+
+	public void deleteAll() {
+		head = null;
+	}
+
+	public void insert(int val){
+		Node current = head;
+		Node prev = head;
+		boolean found = false;
+		if (head!= null) {
+			while (!found && current != null){
+				if (current.info < val) {
+					found = true;
+				} else {
+					prev = current;
+					current = current.link;
+				}
+			}	
+		Node next = new Node (val, prev.link);
+		} else {
+			head = new Node (val, null);
+		}
+		
+	}
+}

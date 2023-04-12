@@ -1,13 +1,14 @@
 public class Main {
     public static void main(String[] args) {
-        /*LinkedList list = new LinkedList();
+        LinkedList list = new LinkedList();
         list.addAtFront(5);
         list.addAtFront(10);
         list.addAtFront(15);
         list.addAtFront(12);
         list.addAtRear(20);
-        list.deleteVal(20);
+        //list.deleteVal(20);
         list.printList();
+        /*
         System.out.println("sussy!");
         //list.deleteLast();
         list.insert(10);
@@ -27,7 +28,7 @@ public class Main {
         System.out.println(stacc.pop());
         System.out.println(stacc.pop());*/
 
-        Queue q = new Queue();
+        /*Queue q = new Queue();
         q.create(1);
         q.enqueue(2);
         q.enqueue(3);
@@ -41,6 +42,6 @@ public class Main {
         System.out.println("peek: " + q.peek());
         System.out.println(q.dequeue());
         System.out.println(q.dequeue());
-        //System.out.println(q.peek());
+        //System.out.println(q.peek());*/
     }
 }
