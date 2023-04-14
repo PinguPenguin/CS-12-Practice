@@ -12,7 +12,20 @@ public class Main {
             ArrayThree = ArrayGen.randomizedArray(1000);
         }
     }
+    /*
+    8880
+2394
+4712
+2096
+2016
+2151
+2068
+2073
+2059
+2050
+2039
 
+     */
     public static long bubbleTime(int[] arr){
         StopWatch watch = new StopWatch();
         watch.start();
