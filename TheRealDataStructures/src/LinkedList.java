@@ -33,4 +33,50 @@ class LinkedList {
         current.link = next;
     }
 
+    public void deleteFirst() {
+        if (head == null) {
+            System.out.println("empty, can't delete");
+        } else {
+            head = head.link;
+        }
+    }
+
+    public void deleteLast() {
+        if (head == null) {
+            System.out.println("Empty, not deleting.");
+        } else {
+            Node prev = head;
+            Node current = head;
+            while (current.link != null) {
+                prev = current;
+                current = current.link;
+            }
+            prev.link = null;
+        }
+    }
+
+
+    public void deleteAll() {
+        head = null;
+    }
+
+    public void insert(int val){
+        Node current = head;
+        Node prev = head;
+        boolean found = false;
+        if (head!= null) {
+            while (!found && current != null){
+                if (current.info > val) {
+                    found = true;
+                } else {
+                    prev = current;
+                    current = current.link;
+                }
+            }
+            Node next = new Node (val, current);
+            prev.link = next;
+        } else {
+            head = new Node (val, null);
+        }
+    }
 }

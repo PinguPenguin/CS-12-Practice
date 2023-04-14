@@ -1,13 +1,13 @@
 public class Main {
     public static void main(String[] args) {
-        LinkedList list = new LinkedList();
-        list.addAtFront(5);
-        list.addAtFront(10);
-        list.addAtFront(15);
-        list.addAtFront(12);
-        list.addAtRear(20);
+        /*LinkedList list = new LinkedList();
+        list.addAtFront(1);
+        list.addAtRear(5);
+        list.insert(3);
+        list.insert(4);
+        list.insert(2);
         //list.deleteVal(20);
-        list.printList();
+        list.printList();/*
         /*
         System.out.println("sussy!");
         //list.deleteLast();
@@ -17,16 +17,18 @@ public class Main {
         //System.out.println(list.sum());
         */
 
-        /*(Stack stacc = new Stack();
+        Stack stacc = new Stack();
         stacc.create(1);
         stacc.push(2);
         stacc.push(3);
         stacc.push(4);
+
+        System.out.println(stacc.pop());
+        System.out.println(stacc.peek());
         System.out.println(stacc.peek());
         System.out.println(stacc.pop());
         System.out.println(stacc.pop());
         System.out.println(stacc.pop());
-        System.out.println(stacc.pop());*/
 
         /*Queue q = new Queue();
         q.create(1);

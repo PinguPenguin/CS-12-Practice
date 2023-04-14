@@ -1,51 +1,46 @@
-public class Stack {
+class Stack {
     private Node top;
-    class Node {
+    class Node{
         int info;
         Node link;
-        Node (int i, Node n){
+        Node (int i, Node n) {
             info = i;
             link = n;
         }
     }
 
     public void create(int val) {
-        if (top == null) {
-            top = new Node(val, null);
+        if (top != null) {
+            System.out.println("Occupied, can't create.");
         } else {
-            System.out.println("bruh");
+            top = new Node (val, null);
         }
     }
 
     public void push(int val) {
-        Node next = new Node(val, top);
-        top = next;
+        if (top == null) {
+            System.out.println("Can't push to empty stack.");
+        } else {
+            Node next = new Node (val, top);
+            top = next;
+        }
     }
 
-    public int peek(){
+    public int peek() {
         if (top != null){
             return top.info;
         }
-        System.out.println("shit");
+        System.out.println("Nothing to peek, returning 0.");
         return 0;
     }
 
-    public boolean isEmpty(){
-        return (top == null);
-    }
-
-    public int pop(){
-        Node temp = top;
-        if (!isEmpty() && top.link != null) {
+    public int pop() {
+        if (top != null){
+            int val = top.info;
             top = top.link;
-            return temp.info;
-        } else if (!isEmpty()) {
-            top = null;
-            return temp.info;
-        } else {
-            System.out.println("shiet");
-            return 0;
+            return val;
         }
+        System.out.println("Nothing to pop, returning 0.");
+        return 0;
     }
-
 }
