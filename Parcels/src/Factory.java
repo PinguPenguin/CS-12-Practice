@@ -97,7 +97,7 @@ public class Factory extends JPanel {
         frame.add(fact);
         frame.setSize(1020, 640);
         frame.setVisible(true);
-        frame.setResizable(false);
+        frame.setResizable(true);
         frame.setLocationRelativeTo(null);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
