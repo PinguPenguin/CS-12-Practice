@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/1 (Classes)/1 (Classes).iml" filepath="$PROJECT_DIR$/1 (Classes)/1 (Classes).iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/CS-12-Practice.iml" filepath="$PROJECT_DIR$/.idea/CS-12-Practice.iml" />
+      <module fileurl="file://$PROJECT_DIR$/DataStructures/DataStructures.iml" filepath="$PROJECT_DIR$/DataStructures/DataStructures.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Graphics/Graphics.iml" filepath="$PROJECT_DIR$/Graphics/Graphics.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Parcels/Parcels.iml" filepath="$PROJECT_DIR$/Parcels/Parcels.iml" />
+      <module fileurl="file://$PROJECT_DIR$/TheRealDataStructures/TheRealDataStructures.iml" filepath="$PROJECT_DIR$/TheRealDataStructures/TheRealDataStructures.iml" />
+    </modules>
+  </component>
+</project>
