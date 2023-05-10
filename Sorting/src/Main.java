@@ -19,7 +19,8 @@ public class Main {
                     }
                     for (int i = 10; i <= 100000; i = i * 10) {
                         for (int j = 0; j <= 10; j++) {
-                            if (j != 0) sum += getTime(ArrayGen.randomizedArray(i), type);
+                            if (j == 0) getTime(ArrayGen.randomizedArray(i),type);
+                            sum += getTime(ArrayGen.randomizedArray(i), type);
                         }
                         sum = sum / 10;
                         System.out.println("Size " + i + ": " + sum);
@@ -39,7 +40,8 @@ public class Main {
                     }
                     for (int i = 10; i <= 100000; i = i * 10) {
                         for (int j = 0; j <= 10; j++) {
-                            if (j != 0) sum += getTime(ArrayGen.nearlySortedArray(i), type);
+                            if (j == 0) getTime(ArrayGen.nearlySortedArray(i),type);
+                            sum += getTime(ArrayGen.nearlySortedArray(i), type);
                         }
                         sum = sum / 10;
                         System.out.println("Size " + i + ": " + sum);
@@ -59,7 +61,8 @@ public class Main {
                     }
                     for (int i = 10; i <= 100000; i = i * 10) {
                         for (int j = 0; j <= 10; j++) {
-                            if (j != 0) sum += getTime(ArrayGen.reversedArray(i), type);
+                            if (j == 0) getTime(ArrayGen.reversedArray(i),type);
+                            sum += getTime(ArrayGen.reversedArray(i), type);
                         }
                         sum = sum / 10;
                         System.out.println("Size " + i + ": " + sum);
@@ -79,7 +82,8 @@ public class Main {
                     }
                     for (int i = 10; i <= 100000; i = i * 10) {
                         for (int j = 0; j <= 10; j++) {
-                            if (j != 0) sum += getTime(ArrayGen.fewUniqueArray(i), type);
+                            if (j == 0) getTime(ArrayGen.fewUniqueArray(i),type);
+                            sum += getTime(ArrayGen.fewUniqueArray(i), type);
                         }
                         sum = sum / 10;
                         System.out.println("Size " + i + ": " + sum);
@@ -94,16 +98,11 @@ public class Main {
         StopWatch watch = new StopWatch();
         watch.start();
         switch (type) {
-            case 1:
-                Sorts.bubbleSort(arr);
-            case 2:
-                Sorts.selectSort(arr);
-            case 3:
-                Sorts.insertSort(arr);
-            case 4:
-                Sorts.mergeSort(arr);
-            case 5:
-                Sorts.quickSort(arr);
+            case 1 -> Sorts.bubbleSort(arr);
+            case 2 -> Sorts.selectSort(arr);
+            case 3 -> Sorts.insertSort(arr);
+            case 4 -> Sorts.mergeSort(arr);
+            case 5 -> Sorts.quickSort(arr);
         }
         watch.stop();
         return watch.getElapsedTime();
