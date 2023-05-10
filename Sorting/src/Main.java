@@ -1,29 +1,109 @@
+import java.util.*;
 public class Main {
     public static void main(String[] args) {
-        ArrayGen gen = new ArrayGen();
-        //naming is hard
-        int[][] Arrays = new int[5][];
+        int sum = 0;
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Select Data Distribution (1-Random, 2-Nearly Sorted, 3-Reversed, 4-Few Unique): ");
+        int select = sc.nextInt();
 
-        Arrays[1] = ArrayGen.randomizedArray(10);
-        Arrays[2] = ArrayGen.randomizedArray(100);
-        Arrays[3] = ArrayGen.randomizedArray(1000);
-        Arrays[4] = ArrayGen.randomizedArray(10000);
-        Arrays[5] = ArrayGen.randomizedArray(100000);
-        long sum = 0;
-        //Bubble sort, randomized array (size 1000)
-        for (int i = 0; i < 11; i++){
-            if (i != 0) {
-                sum += bubbleTime(ArrayThree);
+        switch (select) {
+            case 1 -> {
+                System.out.println("Random Distribution Picked!");
+                for (int type = 1; type <= 5; type++) {
+                    switch (type) {
+                        case 1 -> System.out.println("Bubble Sort: ");
+                        case 2 -> System.out.println("Selection Sort: ");
+                        case 3 -> System.out.println("Insertion Sort: ");
+                        case 4 -> System.out.println("Merge Sort: ");
+                        case 5 -> System.out.println("Quick Sort: ");
+                    }
+                    for (int i = 10; i <= 100000; i = i * 10) {
+                        for (int j = 0; j <= 10; j++) {
+                            if (j == 0) getTime(ArrayGen.randomizedArray(i),type);
+                            sum += getTime(ArrayGen.randomizedArray(i), type);
+                        }
+                        sum = sum / 10;
+                        System.out.println("Size " + i + ": " + sum);
+                        sum = 0;
+                    }
+                }
             }
-            ArrayThree = ArrayGen.randomizedArray(1000);
+            case 2 -> {
+                System.out.println("Nearly Sorted Distribution Picked!");
+                for (int type = 1; type <= 5; type++) {
+                    switch (type) {
+                        case 1 -> System.out.println("Bubble Sort: ");
+                        case 2 -> System.out.println("Selection Sort: ");
+                        case 3 -> System.out.println("Insertion Sort: ");
+                        case 4 -> System.out.println("Merge Sort: ");
+                        case 5 -> System.out.println("Quick Sort: ");
+                    }
+                    for (int i = 10; i <= 100000; i = i * 10) {
+                        for (int j = 0; j <= 10; j++) {
+                            if (j == 0) getTime(ArrayGen.nearlySortedArray(i),type);
+                            sum += getTime(ArrayGen.nearlySortedArray(i), type);
+                        }
+                        sum = sum / 10;
+                        System.out.println("Size " + i + ": " + sum);
+                        sum = 0;
+                    }
+                }
+            }
+            case 3 -> {
+                System.out.println("Reversed Distribution Picked!");
+                for (int type = 1; type <= 5; type++) {
+                    switch (type) {
+                        case 1 -> System.out.println("Bubble Sort: ");
+                        case 2 -> System.out.println("Selection Sort: ");
+                        case 3 -> System.out.println("Insertion Sort: ");
+                        case 4 -> System.out.println("Merge Sort: ");
+                        case 5 -> System.out.println("Quick Sort: ");
+                    }
+                    for (int i = 10; i <= 100000; i = i * 10) {
+                        for (int j = 0; j <= 10; j++) {
+                            if (j == 0) getTime(ArrayGen.reversedArray(i),type);
+                            sum += getTime(ArrayGen.reversedArray(i), type);
+                        }
+                        sum = sum / 10;
+                        System.out.println("Size " + i + ": " + sum);
+                        sum = 0;
+                    }
+                }
+            }
+            case 4 -> {
+                System.out.println("Few Unique Distribution Picked!");
+                for (int type = 1; type <= 5; type++) {
+                    switch (type) {
+                        case 1 -> System.out.println("Bubble Sort: ");
+                        case 2 -> System.out.println("Selection Sort: ");
+                        case 3 -> System.out.println("Insertion Sort: ");
+                        case 4 -> System.out.println("Merge Sort: ");
+                        case 5 -> System.out.println("Quick Sort: ");
+                    }
+                    for (int i = 10; i <= 100000; i = i * 10) {
+                        for (int j = 0; j <= 10; j++) {
+                            if (j == 0) getTime(ArrayGen.fewUniqueArray(i),type);
+                            sum += getTime(ArrayGen.fewUniqueArray(i), type);
+                        }
+                        sum = sum / 10;
+                        System.out.println("Size " + i + ": " + sum);
+                        sum = 0;
+                    }
+                }
+            }
         }
-        System.out.println((double) sum / 10);
     }
 
-    public static long bubbleTime(int[] arr){
+    public static long getTime(int[] arr, int type) {
         StopWatch watch = new StopWatch();
         watch.start();
-        Sorts.bubbleSort(arr);
+        switch (type) {
+            case 1 -> Sorts.bubbleSort(arr);
+            case 2 -> Sorts.selectSort(arr);
+            case 3 -> Sorts.insertSort(arr);
+            case 4 -> Sorts.mergeSort(arr);
+            case 5 -> Sorts.quickSort(arr);
+        }
         watch.stop();
         return watch.getElapsedTime();
     }
